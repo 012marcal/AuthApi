@@ -10,7 +10,7 @@ namespace AuthAPI.Models
         public CargoEnum Cargo { get; set; }
         public byte[] SenhaHash { get; set; }
         public byte[] SenhaSalt { get; set; }
-        public DateTime TokeDataCriacao { get; set; } = DateTime.Now;
+        public DateTime TokeDataCriacao { get; set; } = DateTime.UtcNow;
 
 
     }

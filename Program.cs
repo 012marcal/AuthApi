@@ -1,4 +1,6 @@
 using AuthAPI.Data;
+using AuthAPI.Services.AuthService;
+using AuthAPI.Services.SenhaService;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ISenhaService, SenhaService>();
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
